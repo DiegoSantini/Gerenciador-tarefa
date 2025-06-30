@@ -297,3 +297,4 @@ Para dúvidas sobre o teste, entre em contato com a equipe de desenvolvimento da
 **Boa sorte! 🚀**
 
 
+# Gerenciador-tarefa
