@@ -1,14 +1,9 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
-import { fileURLToPath, URL } from 'node:url';
+import path from 'path';
 
 export default defineConfig({
-    resolve: {
-        alias: {
-            '@': fileURLToPath(new URL('./resources/js', import.meta.url)),
-        },
-    },
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
@@ -16,4 +11,14 @@ export default defineConfig({
         }),
         vue(),
     ],
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './resources/js'),
+        },
+    },
+    server: {
+        proxy: {
+            '/api': 'http://localhost:8000',
+        },
+    },
 });
