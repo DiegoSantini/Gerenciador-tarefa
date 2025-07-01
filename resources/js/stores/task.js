@@ -1,5 +1,3 @@
-// resources/js/stores/task.js
-
 import { defineStore } from 'pinia'
 import taskService from '../services/taskService'
 
@@ -27,19 +25,32 @@ export const useTaskStore = defineStore('tasks', {
       await this.fetchTasks()
     },
 
-    async updateTask(id, task) {
-      await taskService.update(id, task)
-      await this.fetchTasks()
-    },
-
     async deleteTask(id) {
-      await taskService.remove(id)
-      await this.fetchTasks()
-    },
+  try {
+    await taskService.remove(id)
+    await this.fetchTasks()
+  } catch (error) {
+    console.error('Erro ao excluir tarefa:', error.response?.data || error)
+  }
+},
 
-    async toggleTask(id) {
-      await taskService.toggle(id)
-      await this.fetchTasks()
-    }
+async toggleTask(id) {
+  try {
+    await taskService.toggle(id)
+    await this.fetchTasks()
+  } catch (error) {
+    console.error('Erro ao finalizar tarefa:', error.response?.data || error)
+  }
+},
+
+async updateTask(id, task) {
+  try {
+    await taskService.update(id, task)
+    await this.fetchTasks()
+  } catch (error) {
+    console.error('Erro ao atualizar tarefa:', error.response?.data || error)
+  }
+}
+
   }
 })

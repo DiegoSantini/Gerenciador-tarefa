@@ -21,11 +21,6 @@ const openModal = (task = null) => {
 
 <template>
   <div class="p-4 max-w-3xl mx-auto">
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-xl font-bold">Minhas Tarefas</h2>
-      <button @click="openModal()" class="bg-blue-500 text-white px-4 py-2 rounded">+ Nova</button>
-    </div>
-
     <div v-if="taskStore.loading" class="text-gray-500">Carregando tarefas...</div>
     <div v-else>
       <TaskItem

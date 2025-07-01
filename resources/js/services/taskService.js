@@ -1,9 +1,7 @@
-// resources/js/services/taskService.js
-
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: '/api' // Laravel proxy vai encaminhar
+  baseURL: '/api' 
 })
 
 export default {
