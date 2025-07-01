@@ -40,3 +40,7 @@ const openModal = (task = null) => {
     />
   </div>
 </template>
+
+<style scoped>
+@import url('../../../public/webflow/css/alloy-tests.webflow.css');
+</style>

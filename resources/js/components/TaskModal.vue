@@ -14,3 +14,7 @@ const emit = defineEmits(['close'])
     </div>
   </div>
 </template>
+
+<style scoped>
+@import url('../../../public/webflow/css/alloy-tests.webflow.css');
+</style>

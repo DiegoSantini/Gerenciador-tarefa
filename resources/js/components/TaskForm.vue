@@ -59,3 +59,7 @@ async function submit() {
     </div>
   </form>
 </template>
+
+<style scoped>
+@import url('../../../public/webflow/css/alloy-tests.webflow.css');
+</style>
